@@ -120,7 +120,8 @@
       justify-content: space-between;
       align-items: center;
       z-index: 100;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(10px);
     }
     .logo {
       font-family: 'Playfair Display', serif;
@@ -183,7 +184,7 @@
     }
 
     /* ===== COUNTRY SECTION ===== */
-    .country-section { position: relative; }
+    .country-section { position: relative; scroll-margin-top: 80px; }
     .country-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     .country-header {
       display: flex;
@@ -233,6 +234,7 @@
       position: relative;
       height: 240px;
       overflow: hidden;
+      background: #222; /* Placeholder background */
     }
     .dest-card-img {
       width: 100%;
@@ -282,7 +284,7 @@
     .feature-card {
       position: relative;
       width: 100%;
-      height: 550px;
+      height: 600px;
       border-radius: 20px;
       overflow: hidden;
       margin-top: 40px;
@@ -298,15 +300,12 @@
       padding: 60px;
     }
     .feature-card-tag { font-size: 0.8rem; font-weight: 700; margin-bottom: 16px; }
-    .feature-card-title { font-size: 3rem; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
-    .feature-card-desc { max-width: 550px; font-size: 1.1rem; line-height: 1.8; color: rgba(240,236,228,0.8); margin-bottom: 30px; }
+    .feature-card-title { font-size: 3.5rem; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
+    .feature-card-desc { max-width: 600px; font-size: 1.1rem; line-height: 1.8; color: rgba(240,236,228,0.8); margin-bottom: 30px; }
     .feature-card-day { font-size: 0.9rem; font-weight: 700; color: #d4af37; letter-spacing: 0.1em; }
 
-    /* ===== TWO COL LAYOUT ===== */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 32px; }
-
     /* ===== SCHEDULE TABLE ===== */
-    .schedule-section { background: #0a0a0a; }
+    .schedule-section { background: #0a0a0a; scroll-margin-top: 80px; }
     .schedule-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     .schedule-tabs {
       display: flex;
@@ -376,6 +375,7 @@
     .cb-chile { background: rgba(206, 147, 216, 0.15); color: #ce93d8; }
     .cb-argentina { background: rgba(79, 195, 247, 0.15); color: #4fc3f7; }
     .cb-brazil { background: rgba(255, 183, 77, 0.15); color: #ffb74d; }
+    .cb-canada { background: rgba(255, 255, 255, 0.15); color: #fff; }
     .transport-badge {
       font-size: 0.7rem;
       color: rgba(240,236,228,0.4);
@@ -435,7 +435,6 @@
       .feature-card { height: auto; }
       .feature-card-overlay { padding: 30px; position: relative; background: #1a1a1a; }
       .feature-card-title { font-size: 2rem; }
-      .two-col { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -535,34 +534,34 @@
 
       <div class="dest-card">
         <div class="dest-card-img-wrap">
-          <img src="images/cancun_beach.jpg" alt="칸쿤 해변" class="dest-card-img" />
+          <img src="images/mexico_chichen_itza.jpg" alt="치첸이샤" class="dest-card-img" />
           <div class="dest-card-day-badge">Day 5 · 칸쿤</div>
         </div>
         <div class="dest-card-body">
-          <div class="dest-card-tag" style="color:#4caf50;">Caribbean Paradise</div>
-          <h3 class="dest-card-title">칸쿤 — 치첸이샤 & 핑크라군</h3>
-          <p class="dest-card-desc">에메랄드빛 바다와 하얀 모래사장이 펼쳐진 세계 최고의 휴양지. 치첸이샤 마야 유적과 신비로운 세노떼 탐험, 핑크라군까지 하루에 정복합니다.</p>
+          <div class="dest-card-tag" style="color:#4caf50;">World Wonder</div>
+          <h3 class="dest-card-title">치첸이샤 — 마야의 신비</h3>
+          <p class="dest-card-desc">세계 7대 불가사의 중 하나인 마야 문명의 유적지. 거대한 피라미드 '엘 카스티요'와 신비로운 익킬 세노떼를 탐험합니다.</p>
           <div class="dest-card-highlights">
-            <span class="highlight-chip">치첸이샤</span>
-            <span class="highlight-chip">핑크라군</span>
-            <span class="highlight-chip">익킬세노떼</span>
+            <span class="highlight-chip">엘 카스티요</span>
+            <span class="highlight-chip">익킬 세노떼</span>
+            <span class="highlight-chip">마야 유적</span>
           </div>
         </div>
       </div>
 
       <div class="dest-card">
         <div class="dest-card-img-wrap">
-          <img src="images/mexico_zocalo.jpg" alt="칸쿤 정글투어" class="dest-card-img" />
-          <div class="dest-card-day-badge">Day 6 · 칸쿤</div>
+          <img src="images/mexico_pink_lagoon.jpg" alt="핑크라군" class="dest-card-img" />
+          <div class="dest-card-day-badge">Day 5 · 칸쿤</div>
         </div>
         <div class="dest-card-body">
-          <div class="dest-card-tag" style="color:#4caf50;">Adventure</div>
-          <h3 class="dest-card-title">칸쿤 — 정글투어 & 스노쿨링</h3>
-          <p class="dest-card-desc">직접 보트를 운전하여 맹그로브 숲을 지나 카리브해로 나갑니다. 맑은 바닷속에서 즐기는 스노쿨링은 칸쿤 여행의 백미입니다.</p>
+          <div class="dest-card-tag" style="color:#4caf50;">Visual Peak</div>
+          <h3 class="dest-card-title">핑크라군 — 분홍빛 바다</h3>
+          <p class="dest-card-desc">비현실적인 분홍색 물감을 풀어놓은 듯한 염전 호수. 푸른 하늘과 대비되는 환상적인 색감의 핑크라군에서 인생 사진을 남깁니다.</p>
           <div class="dest-card-highlights">
-            <span class="highlight-chip">보트 운전</span>
-            <span class="highlight-chip">스노쿨링</span>
-            <span class="highlight-chip">맹그로브 숲</span>
+            <span class="highlight-chip">분홍색 호수</span>
+            <span class="highlight-chip">인생샷 명소</span>
+            <span class="highlight-chip">염전 투어</span>
           </div>
         </div>
       </div>
@@ -584,7 +583,7 @@
 
     <!-- MACHU PICCHU HIGHLIGHT -->
     <div class="feature-card" style="margin-bottom: 40px;">
-      <img src="images/peru_machu_epic.jpg" alt="마추픽추 전경" style="object-position: top;" />
+      <img src="images/peru_machu_epic.jpg" alt="마추픽추 전경" style="object-position: 50% 20%;" />
       <div class="feature-card-overlay">
         <div class="feature-card-tag" style="color:#ef5350;">Day 14 · Lost City of the Incas</div>
         <h3 class="feature-card-title">마추픽추 — 공중도시의 전설</h3>
@@ -623,7 +622,7 @@
           <div class="dest-card-highlights">
             <span class="highlight-chip">보트 투어</span>
             <span class="highlight-chip">물개 & 펭귄</span>
-            <span class="highlight-chip">로스트 캐니언</span>
+            <span class="highlight-chip">바다새</span>
           </div>
         </div>
       </div>
@@ -673,6 +672,23 @@
     <div class="dest-grid" style="margin-top: 32px;">
       <div class="dest-card">
         <div class="dest-card-img-wrap">
+          <img src="images/bolivia_death_road.jpg" alt="데스로드 바이크" class="dest-card-img" />
+          <div class="dest-card-day-badge">Day 19 · 라파즈</div>
+        </div>
+        <div class="dest-card-body">
+          <div class="dest-card-tag" style="color:#7986cb;">Extreme</div>
+          <h3 class="dest-card-title">데스 로드 — 바이크 투어</h3>
+          <p class="dest-card-desc">세계에서 가장 위험한 도로를 자전거로 내려가는 스릴 넘치는 액티비티. 깎아지른 절벽 옆을 달리는 짜릿한 경험을 선사합니다.</p>
+          <div class="dest-card-highlights">
+            <span class="highlight-chip">산악 자전거</span>
+            <span class="highlight-chip">절벽 코스</span>
+            <span class="highlight-chip">아드레날린</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card">
+        <div class="dest-card-img-wrap">
           <img src="images/bolivia_teleferico.jpg" alt="라파즈 텔레페리코" class="dest-card-img" />
           <div class="dest-card-day-badge">Day 17–20 · 라파즈</div>
         </div>
@@ -684,23 +700,6 @@
             <span class="highlight-chip">텔레페리코</span>
             <span class="highlight-chip">달의 계곡</span>
             <span class="highlight-chip">마녀 시장</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="dest-card">
-        <div class="dest-card-img-wrap">
-          <img src="images/bolivia_lapaz.jpg" alt="데스로드 바이크" class="dest-card-img" />
-          <div class="dest-card-day-badge">Day 19 · 라파즈</div>
-        </div>
-        <div class="dest-card-body">
-          <div class="dest-card-tag" style="color:#7986cb;">Extreme</div>
-          <h3 class="dest-card-title">데스 로드 — 바이크 투어</h3>
-          <p class="dest-card-desc">세계에서 가장 위험한 도로를 자전거로 내려가는 스릴 넘치는 액티비티. 깎아지른 절벽 옆을 달리는 짜릿한 경험을 선사합니다.</p>
-          <div class="dest-card-highlights">
-            <span class="highlight-chip">산악 자전거</span>
-            <span class="highlight-chip">절벽 코스</span>
-            <span class="highlight-chip">아드레날린</span>
           </div>
         </div>
       </div>
@@ -849,7 +848,7 @@
       <div class="country-flag-num">06</div>
       <div class="country-header-text">
         <div class="country-tag" style="background:rgba(255,183,77,0.15);color:#ffb74d;">브라질 · Day 44–49</div>
-        <h2 class="country-name">브라질<br />이과수 · 리우데자네이루</h2>
+        <h2 class="country-name">브라질 & 파라과이<br />이과수 · 리우데자네이루</h2>
         <div class="country-period">2027년 1월 25일 — 1월 30일 · 5박 6일</div>
       </div>
     </div>
@@ -863,7 +862,7 @@
         <div class="dest-card-body">
           <div class="dest-card-tag" style="color:#ffb74d;">Iguazu Falls</div>
           <h3 class="dest-card-title">이과수 폭포 — 아르헨티나 & 브라질 사이드</h3>
-          <p class="dest-card-desc">세계 최대 규모의 폭포. 아르헨티나 사이드에서 '악마의 목구멍'을 보고, 브라질 사이드에서 웅장한 파노라마를 담습니다. 파라과이 당일치기 관광이 포함됩니다.</p>
+          <p class="dest-card-desc">세계 최대 규모의 폭포. 아르헨티나 사이드에서 '악마의 목구멍'을 보고, 브라질 사이드에서 웅장한 파노라마를 담습니다. **파라과이 당일치기** 관광이 포함됩니다.</p>
           <div class="dest-card-highlights">
             <span class="highlight-chip">악마의 목구멍</span>
             <span class="highlight-chip">보트 투어</span>
@@ -908,6 +907,7 @@
       <button class="schedule-tab" onclick="showSchedule('chile', this)" style="color:#ce93d8;">🇨🇱 칠레</button>
       <button class="schedule-tab" onclick="showSchedule('argentina', this)" style="color:#4fc3f7;">🇦🇷 아르헨티나</button>
       <button class="schedule-tab" onclick="showSchedule('brazil', this)" style="color:#ffb74d;">🇧🇷 브라질</button>
+      <button class="schedule-tab" onclick="showSchedule('canada', this)" style="color:#fff;">🇨🇦 캐나다</button>
     </div>
 
     <div class="schedule-table-wrap">
@@ -981,7 +981,7 @@
 
 <footer>
   <p>남미 일주 50일 배낭여행 · 2026.12.13 — 2027.1.31</p>
-  <p style="margin-top:8px;">멕시코 · 페루 · 볼리비아 · 칠레 · 아르헨티나 · 브라질 + 캐나다(레이오버) · 파라과이(당일치기)</p>
+  <p style="margin-top:8px;">멕시코 · 페루 · 볼리비아 · 칠레 · 아르헨티나 · 브라질 · 파라과이 · 캐나다</p>
 </footer>
 
 <script>
@@ -1033,8 +1033,8 @@
     { day: 'Day 45', date: '1.26', country: 'brazil', countryName: '브라질', city: '이과수→리우', transport: '비행기', activity: '이과수 브라질 사이드 / 파라과이 당일치기 / 리우 이동', stay: '리우데자네이루' },
     { day: 'Day 46', date: '1.27', country: 'brazil', countryName: '브라질', city: '리우데자네이루', transport: '—', activity: '리우 시내 관광', stay: '리우데자네이루' },
     { day: 'Day 47', date: '1.28', country: 'brazil', countryName: '브라질', city: '리우데자네이루', transport: '—', activity: '리우 시내 관광', stay: '리우데자네이루' },
-    { day: 'Day 48', date: '1.29', country: 'brazil', countryName: '브라질', city: '리우→귀국', transport: '비행기', activity: '리우 관광 / 공항 이동 및 출발', stay: '기내' },
-    { day: 'Day 49', date: '1.30', country: 'brazil', countryName: '브라질', city: '토론토→인천', transport: '비행기', activity: '토론토 레이오버 (7시간) / 인천 출발', stay: '기내' },
+    { day: 'Day 48', date: '1.29', country: 'brazil', countryName: '브라질', city: '리우→토론토', transport: '비행기', activity: '리우 관광 / 공항 이동 및 출발', stay: '기내' },
+    { day: 'Day 49', date: '1.30', country: 'canada', countryName: '캐나다', city: '토론토→인천', transport: '비행기', activity: '토론토 레이오버 (7시간) / 인천 출발', stay: '기내' },
     { day: 'Day 50', date: '1.31', country: 'korea', countryName: '대한민국', city: '인천', transport: '비행기', activity: '인천 도착 (18:25)', stay: '귀가' }
   ];
 
@@ -1045,6 +1045,7 @@
     chile: 'cb-chile',
     argentina: 'cb-argentina',
     brazil: 'cb-brazil',
+    canada: 'cb-canada',
     korea: ''
   };
 
