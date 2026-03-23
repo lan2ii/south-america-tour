@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>남미 일주 50일 배낭여행 — 8개국 대장정</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #0d0d0d;
+      color: #f0ece4;
+      overflow-x: hidden;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0a1628 0%, #1a2a1a 40%, #2a1a0a 70%, #0a0a1a 100%);
+      z-index: 0;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('images/bolivia_uyuni.jpg') center/cover no-repeat;
+      opacity: 0.35;
+      filter: saturate(1.3);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.7) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 20px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.2);
+      border: 1px solid rgba(212, 175, 55, 0.6);
+      color: #d4af37;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+    }
+    .hero-title span {
+      color: #d4af37;
+      font-style: italic;
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      font-weight: 300;
+      color: rgba(240,236,228,0.85);
+      letter-spacing: 0.05em;
+      margin-bottom: 40px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .hero-stat {
+      text-align: center;
+    }
+    .hero-stat-num {
+      display: block;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #d4af37;
+      margin-bottom: 4px;
+    }
+    .hero-stat-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(240,236,228,0.5);
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #d4af37;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(240,236,228,0.7);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: #d4af37; }
+
+    /* ===== COMMON SECTION ===== */
+    section { padding: 100px 0; }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #d4af37;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 32px;
+      line-height: 1.2;
+    }
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: #d4af37;
+      margin-bottom: 40px;
+    }
+    .divider-center { margin-left: auto; margin-right: auto; }
+
+    /* ===== ROUTE SECTION ===== */
+    .route-section { background: #0a0a0a; text-align: center; }
+    .route-map-img {
+      width: 100%;
+      max-width: 1000px;
+      border-radius: 20px;
+      margin: 40px 0;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    /* ===== COUNTRY SECTION ===== */
+    .country-section { position: relative; }
+    .country-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .country-header {
+      display: flex;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+    .country-flag-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 6rem;
+      font-weight: 700;
+      line-height: 0.8;
+      color: rgba(212, 175, 55, 0.1);
+    }
+    .country-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .country-name { font-size: 2.8rem; font-weight: 900; }
+    .country-period { font-size: 0.9rem; color: rgba(240,236,228,0.5); margin-top: 8px; }
+
+    /* ===== DESTINATION CARDS ===== */
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 32px;
+    }
+    .dest-card {
+      background: #1a1a1a;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .dest-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(212, 175, 55, 0.3);
+    }
+    .dest-card-img-wrap {
+      position: relative;
+      height: 240px;
+      overflow: hidden;
+    }
+    .dest-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+    .dest-card:hover .dest-card-img { transform: scale(1.1); }
+    .dest-card-day-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(10px);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .dest-card-body { padding: 28px; }
+    .dest-card-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 12px;
+    }
+    .dest-card-title { font-size: 1.4rem; margin-bottom: 16px; }
+    .dest-card-desc {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: rgba(240,236,228,0.7);
+      margin-bottom: 24px;
+    }
+    .dest-card-highlights { display: flex; gap: 8px; flex-wrap: wrap; }
+    .highlight-chip {
+      font-size: 0.65rem;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(240,236,228,0.6);
+    }
+
+    /* ===== FEATURE CARD (WIDE) ===== */
+    .feature-card {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 40px;
+    }
+    .feature-card img { width: 100%; height: 100%; object-fit: cover; }
+    .feature-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px;
+    }
+    .feature-card-tag { font-size: 0.8rem; font-weight: 700; margin-bottom: 16px; }
+    .feature-card-title { font-size: 2.4rem; margin-bottom: 20px; }
+    .feature-card-desc { max-width: 500px; font-size: 1rem; line-height: 1.8; color: rgba(240,236,228,0.8); margin-bottom: 30px; }
+    .feature-card-day { font-size: 0.85rem; font-weight: 700; color: #d4af37; }
+
+    /* ===== TWO COL LAYOUT ===== */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 32px; }
+
+    /* ===== SCHEDULE TABLE ===== */
+    .schedule-section { background: #0a0a0a; }
+    .schedule-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .schedule-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .schedule-tab {
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(240,236,228,0.6);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .schedule-tab:hover { border-color: #d4af37; color: #d4af37; }
+    .schedule-tab.active { background: #d4af37; color: #000; border-color: #d4af37; }
+
+    .schedule-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      background: #111;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+    }
+    .schedule-table th {
+      background: rgba(255,255,255,0.02);
+      padding: 20px;
+      text-align: left;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(240,236,228,0.4);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .schedule-table td {
+      padding: 20px;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .day-badge {
+      background: rgba(212, 175, 55, 0.1);
+      color: #d4af37;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.75rem;
+    }
+    .country-badge {
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+    .cb-mexico { background: rgba(76, 175, 80, 0.15); color: #4caf50; }
+    .cb-peru { background: rgba(239, 83, 80, 0.15); color: #ef5350; }
+    .cb-bolivia { background: rgba(121, 134, 203, 0.15); color: #7986cb; }
+    .cb-chile { background: rgba(206, 147, 216, 0.15); color: #ce93d8; }
+    .cb-argentina { background: rgba(79, 195, 247, 0.15); color: #4fc3f7; }
+    .cb-brazil { background: rgba(255, 183, 77, 0.15); color: #ffb74d; }
+    .transport-badge {
+      font-size: 0.7rem;
+      color: rgba(240,236,228,0.4);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* ===== COST SECTION ===== */
+    .cost-section { background: #111; }
+    .cost-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .cost-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .cost-card {
+      background: #1a1a1a;
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.05);
+      text-align: center;
+    }
+    .cost-card-icon { font-size: 1.5rem; margin-bottom: 12px; }
+    .cost-card-label { font-size: 0.75rem; color: rgba(240,236,228,0.5); margin-bottom: 8px; }
+    .cost-card-amount { font-size: 1.2rem; font-weight: 700; color: #d4af37; margin-bottom: 4px; }
+    .cost-card-sub { font-size: 0.7rem; color: rgba(240,236,228,0.3); }
+    .cost-total {
+      margin-top: 40px;
+      background: linear-gradient(90deg, #1a1a1a, #2a2a2a);
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    .cost-total-label { font-size: 1rem; color: rgba(240,236,228,0.6); margin-bottom: 12px; }
+    .cost-total-amount { font-size: 3rem; font-weight: 900; color: #d4af37; }
+    .cost-total-note { font-size: 0.8rem; color: rgba(240,236,228,0.4); margin-top: 16px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 60px 0;
+      text-align: center;
+      background: #0a0a0a;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      color: rgba(240,236,228,0.4);
+      font-size: 0.8rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero-stats { gap: 20px; }
+      .nav-links { display: none; }
+      .country-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .country-flag-num { font-size: 4rem; }
+      .feature-card { height: auto; }
+      .feature-card-overlay { padding: 30px; position: relative; background: #1a1a1a; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">SOUTH AMERICA 50</div>
+  <div class="nav-links">
+    <a href="#mexico">MEXICO</a>
+    <a href="#peru">PERU</a>
+    <a href="#bolivia">BOLIVIA</a>
+    <a href="#chile">CHILE</a>
+    <a href="#argentina">ARGENTINA</a>
+    <a href="#brazil">BRAZIL</a>
+    <a href="#schedule">ITINERARY</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">The Ultimate Expedition</div>
+    <h1 class="hero-title">남미 일주 <span>50일</span><br />배낭여행 대장정</h1>
+    <p class="hero-subtitle">멕시코부터 파타고니아까지, 지구 반대편의 경이로움을 만나다</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">50</span>
+        <span class="hero-stat-label">Days</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">8</span>
+        <span class="hero-stat-label">Countries</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">18+</span>
+        <span class="hero-stat-label">Cities</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROUTE MAP -->
+<section class="route-section">
+  <div class="container">
+    <div class="section-label">The Journey</div>
+    <h2 class="section-title">우리의 여정</h2>
+    <div class="divider divider-center"></div>
+    <img src="images/route_map_continent.jpg" alt="남미 일주 루트 맵" class="route-map-img" />
+    <p style="color:rgba(240,236,228,0.6); max-width: 700px; margin: 0 auto; line-height: 1.8;">
+      인천을 출발하여 캐나다 밴쿠버를 거쳐 멕시코 칸쿤으로 입국합니다. 멕시코시티와 똘란똥고를 거쳐 페루, 볼리비아, 칠레, 아르헨티나, 브라질을 일주하고 파라과이 당일치기까지 포함된 50일간의 완벽한 루트입니다.
+    </p>
+  </div>
+</section>
+
+<!-- MEXICO -->
+<section class="country-section" id="mexico" style="background:#111;">
+  <div class="country-inner">
+    <div class="country-header">
+      <div class="country-flag-num">01</div>
+      <div class="country-header-text">
+        <div class="country-tag" style="background:rgba(76,175,80,0.15);color:#4caf50;">Mexico · Day 1–10</div>
+        <h2 class="country-name">멕시코<br />칸쿤 · 멕시코시티 · 똘란똥고</h2>
+        <div class="country-period">2026년 12월 14일 — 12월 23일 · 9박 10일</div>
+      </div>
+    </div>
+
+    <div class="dest-grid">
+      <div class="dest-card">
+        <div class="dest-card-img-wrap">
+          <img src="images/cancun_beach.jpg" alt="칸쿤 해변" class="dest-card-img" />
+          <div class="dest-card-day-badge">Day 1–4 · 칸쿤</div>
+        </div>
+        <div class="dest-card-body">
+          <div class="dest-card-tag" style="color:#4caf50;">Caribbean Paradise</div>
+          <h3 class="dest-card-title">칸쿤 — 카리브해의 낙원</h3>
+          <p class="dest-card-desc">에메랄드빛 바다와 하얀 모래사장이 펼쳐진 세계 최고의 휴양지. 치첸이샤 마야 유적과 신비로운 세노떼 탐험, 정글 투어까지 휴양과 모험을 동시에 즐깁니다.</p>
+          <div class="dest-card-highlights">
+            <span class="highlight-chip">치첸이샤</span>
+            <span class="highlight-chip">세노떼</span>
+            <span class="highlight-chip">올인클루시브</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card">
+        <div class="dest-card-img-wrap">
+          <img src="images/mexico_zocalo.jpg" alt="멕시코시티 소칼로 광장" class="dest-card-img" />
+          <div class="dest-card-day-badge">Day 5–7 · 멕시코시티</div>
+        </div>
+        <div class="dest-card-body">
+          <div class="dest-card-tag" style="color:#4caf50;">Historic Heart</div>
+          <h3 class="dest-card-title">멕시코시티 — 역사의 중심</h3>
+          <p class="dest-card-desc">아즈텍 문명과 스페인 식민 시대의 흔적이 공존하는 거대 도시. 소칼로 광장의 웅장함과 테오티우아칸 피라미드의 신비로움을 경험합니다.</p>
+          <div class="dest-card-highlights">
+            <span class="highlight-chip">소칼로 광장</span>
+            <span class="highlight-chip">테오티우아칸</span>
+            <span class="highlight-chip">타코 투어</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card">
+        <div class="dest-card-img-wrap">
+          <img src="images/mexico_tolantongo.jpg" alt="똘란똥고 온천" class="dest-card-img" />
+          <div class="dest-card-day-badge">Day 8–9 · 똘란똥고</div>
+        </div>
+        <div class="dest-card-body">
+          <div class="dest-card-tag" style="color:#4caf50;">Natural Spa</div>
+          <h3 class="dest-card-title">똘란똥고 — 절벽 위 온천</h3>
+          <p class="dest-card-desc">깎아지른 절벽 사이에 자리 잡은 하늘색 온천탕. 자연이 만든 천연 스파에서 계곡을 바라보며 즐기는 온천욕은 멕시코 여행의 하이라이트입니다.</p>
+          <div class="dest-card-highlights">
+            <span class="highlight-chip">그루타스 온천</span>
+            <span class="highlight-chip">절벽 수영장</span>
+            <span class="highlight-chip">캠핑 경험</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERU -->
+<section class="country-section" id="peru" style="background:#0d0d0d;">
+  <div class="country-inner">
+    <div class="country-header">
+      <div class="country-flag-num">02</div>
+      <div class="country-header-text">
+        <div class="country-tag" style="background:rgba(239,83,80,0.15);color:#ef5350;">Peru · Day 10–20</div>
+        <h2 class="country-name">페루<br />리마 · 이카 · 쿠스코</h2>
+        <div class="country-period">2026년 12월 23일 — 2027년 1월 2일 · 10박 11일</div>
+      </div>
+    </div>
+
+    <div class="dest-grid">
+      <div class="dest-card">
+        <div class="dest-card-img-wrap">
+          <img src="images/peru_machu.jpg" alt="마추픽추" class="dest-card-img" />
+          <div class="dest-card-day-badge">Day 17 · 마추픽추</div>
+        </div>
+        <div class="dest-card-body">
+          <div class="dest-card-tag" style="color:#ef5350;">Inca Empire</div>
+          <h3 class="dest-card-title">마추픽추 — 공중도시</h3>
+          <p class="dest-card-desc">안데스 산맥 깊은 곳, 구름 속에 가려진 잉카의 잃어버린 도시. 성스러운 계곡을 지나 마주하는 마추픽추의 전경은 평생 잊지 못할 감동을 선사합니다.</p>
+          <div class="dest-card-highlights">
+            <span class="highlight-chip">잉카 유적</span>
+            <span class="highlight-chip">성스러운 계곡</span>
+            <span class="highlight-chip">아구아스깔리엔테스</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card">
+        <div class="dest-card-img-wrap">
+          <img src="images/peru_huacachina.jpg" alt="와카치나 사막" class="dest-card-img" />
+          <div class="dest-card-day-badge">Day 11–14 · 이카</div>
+        </div>
+        <div class="dest-card-body">
+          <div class="dest-card-tag" style="color:#ef5350;">Desert Adventure</div>
+          <h3 class="dest-card-title">이카 & 와카치나 — 사막의 오아시스</h3>
+          <p class="dest-card-desc">거대한 사구로 둘러싸인 신비로운 오아시스 마을. 스릴 넘치는 버기카 투어와 샌드보딩, 그리고 나스카 라인 경비행기 투어까지 사막의 모든 것을 즐깁니다.</p>
+          <div class="dest-card-highlights">
+            <span class="highlight-chip">버기카 투어</span>
+            <span class="highlight-chip">나스카 라인</span>
+            <span class="highlight-chip">로스트 캐니언</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card">
+        <div class="dest-card-img-wrap">
+          <img src="images/peru_rainbow.jpg" alt="비니쿤카" class="dest-card-img" />
+          <div class="dest-card-day-badge">Day 18 · 비니쿤카</div>
+        </div>
+        <div class="dest-card-body">
+          <div class="dest-card-tag" style="color:#ef5350;">Rainbow Mountain</div>
+          <h3 class="dest-card-title">비니쿤카 — 무지개산</h3>
+          <p class="dest-card-desc">해발 5,000m가 넘는 고산 지대에 펼쳐진 일곱 빛깔 대지. 자연이 빚어낸 경이로운 색채의 향연을 직접 두 발로 걸어 올라가 확인합니다.</p>
+          <div class="dest-card-highlights">
+            <span class="highlight-chip">고산 트래킹</span>
+            <span class="highlight-chip">일곱 빛깔 산</span>
+            <span class="highlight-chip">안데스 풍경</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOLIVIA -->
+<section class="country-section" id="bolivia" style="background:#111;">
+  <div class="country-inner">
+    <div class="country-header">
+      <div class="country-flag-num">03</div>
+      <div class="country-header-text">
+        <div class="country-tag" style="background:rgba(121,134,203,0.15);color:#7986cb;">Bolivia · Day 21–28</div>
+        <h2 class="country-name">볼리비아<br />라파즈 · 우유니 사막</h2>
+        <div class="country-period">2027년 1월 3일 — 1월 10일 · 7박 8일</div>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <img src="images/bolivia_uyuni.jpg" alt="우유니 사막" />
+      <div class="feature-card-overlay">
+        <div class="feature-card-tag" style="color:#7986cb;">Day 25–28 · The World's Largest Mirror</div>
+        <h3 class="feature-card-title">우유니 소금 사막 — 하늘의 거울</h3>
+        <p class="feature-card-desc">지구상에서 가장 큰 거울. 우기철 얇게 고인 물 위로 하늘이 완벽하게 투영되는 마법 같은 순간을 만납니다. 데이 투어부터 선셋, 스타라이트, 선라이즈까지 우유니의 모든 시간을 담습니다.</p>
+        <div class="feature-card-day">풀데이 투어 · 선셋 & 스타라이트 · 아타카마 횡단 투어</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="dest-card">
+        <div class="dest-card-img-wrap">
+          <img src="images/bolivia_lapaz.jpg" alt="라파즈" class="dest-card-img" />
+          <div class="dest-card-day-badge">Day 21–24 · 라파즈</div>
+        </div>
+        <div class="dest-card-body">
+          <div class="dest-card-tag" style="color:#7986cb;">Highest Capital</div>
+          <h3 class="dest-card-title">라파즈 — 구름 위의 도시</h3>
+          <p class="dest-card-desc">세계에서 가장 높은 수도. 미로 같은 골목과 하늘을 가로지르는 케이블카 '텔레페리코'를 타고 도시의 전경을 감상합니다. 차칼타야와 달의 계곡 투어가 포함됩니다.</p>
+          <div class="dest-card-highlights">
+            <span class="highlight-chip">텔레페리코</span>
+            <span class="highlight-chip">마녀 시장</span>
+            <span class="highlight-chip">차칼타야</span>
+          </div>
+        </div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-card-img-wrap">
+          <img src="images/bolivia_laguna_colorada.jpg" alt="라구나 콜로라다" class="dest-card-img" />
+          <div class="dest-card-day-badge">Day 27 · 아타카마 횡단</div>
+        </div>
+        <div class="dest-card-body">
+          <div class="dest-card-tag" style="color:#7986cb;">Highland Lagoons</div>
+          <h3 class="dest-card-title">라구나 콜로라다 — 붉은 호수</h3>
+          <p class="dest-card-desc">우유니에서 칠레 아타카마로 넘어가는 2박 3일간의 여정. 붉은 빛의 호수와 수천 마리의 플라밍고, 기괴한 암석들이 펼쳐지는 비현실적인 고원을 횡단합니다.</p>
+          <div class="dest-card-highlights">
+            <span class="highlight-chip">플라밍고</span>
+            <span class="highlight-chip">간헐천</span>
+            <span class="highlight-chip">오프로드</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHILE -->
+<section class="country-section" id="chile" style="background:#0d0d0d;">
+  <div class="country-inner">
+    <div class="country-header">
+      <div class="country-flag-num">04</div>
+      <div class="country-header-text">
+        <div class="country-tag" style="background:rgba(206,147,216,0.15);color:#ce93d8;">Chile · Day 28–38</div>
+        <h2 class="country-name">칠레<br />아타카마 · 산티아고 · 파타고니아</h2>
+        <div class="country-period">2027년 1월 10일 — 1월 20일 · 10박 11일</div>
+      </div>
+    </div>
+
+    <div class="dest-grid">
+      <div class="dest-card">
+        <div class="dest-card-img-wrap">
+          <img src="images/chile_atacama.jpg" alt="아타카마 사막" class="dest-card-img" />
+          <div class="dest-card-day-badge">Day 28–31 · 아타카마</div>
+        </div>
+        <div class="dest-card-body">
+          <div class="dest-card-tag" style="color:#ce93d8;">Stargazing Capital</div>
+          <h3 class="dest-card-title">산 페드로 데 아타카마</h3>
+          <p class="dest-card-desc">세계에서 가장 건조한 사막. 렌트카를 타고 달의 계곡과 무지개 계곡을 자유롭게 탐험하고, 밤에는 쏟아질 듯한 은하수를 감상하며 우주의 신비를 느낍니다.</p>
+          <div class="dest-card-highlights">
+            <span class="highlight-chip">달의 계곡</span>
+            <span class="highlight-chip">은하수 투어</span>
+            <span class="highlight-chip">렌트카 여행</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card" style="grid-column: span 2;">
+        <div class="dest-card-img-wrap">
+          <img src="images/chile_torres.jpg" alt="토레스 델 파이네" class="dest-card-img" style="height:400px;" />
+          <div class="dest-card-day-badge">Day 34–37 · 파타고니아</div>
+        </div>
+        <div class="dest-card-body">
+          <div class="dest-card-tag" style="color:#ce93d8;">Patagonia Trekking</div>
+          <h3 class="dest-card-title">토레스 델 파이네 — W 트래킹</h3>
+          <p class="dest-card-desc">지구상에서 가장 아름다운 트래킹 코스 중 하나. 3박 4일간 산장에서 머물며 거대한 빙하, 푸른 호수, 그리고 화강암 봉우리 '토레스'를 마주하는 경이로운 여정입니다.</p>
+          <div class="dest-card-highlights">
+            <span class="highlight-chip">W 트래킹</span>
+            <span class="highlight-chip">그레이 빙하</span>
+            <span class="highlight-chip">산장 숙박</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARGENTINA -->
+<section class="country-section" id="argentina" style="background:#111;">
+  <div class="country-inner">
+    <div class="country-header">
+      <div class="country-flag-num">05</div>
+      <div class="country-header-text">
+        <div class="country-tag" style="background:rgba(79,195,247,0.15);color:#4fc3f7;">Argentina · Day 38–47</div>
+        <h2 class="country-name">아르헨티나<br />엘찰텐 · 우수아이아 · 부에노스아이레스</h2>
+        <div class="country-period">2027년 1월 20일 — 1월 29일 · 9박 10일</div>
+      </div>
+    </div>
+
+    <div class="dest-grid">
+      <div class="dest-card">
+        <div class="dest-card-img-wrap">
+          <img src="images/argentina_fitzroy.jpg" alt="피츠로이" class="dest-card-img" />
+          <div class="dest-card-day-badge">Day 39–41 · 엘 찰텐</div>
+        </div>
+        <div class="dest-card-body">
+          <div class="dest-card-tag" style="color:#4fc3f7;">Trekking Capital</div>
+          <h3 class="dest-card-title">피츠로이 — 불타는 고구마</h3>
+          <p class="dest-card-desc">아웃도어 브랜드 '파타고니아' 로고의 주인공. 일출과 함께 붉게 물드는 피츠로이 봉우리를 보기 위해 새벽을 뚫고 걷는 고난의 길 끝에 최고의 보상이 기다립니다.</p>
+          <div class="dest-card-highlights">
+            <span class="highlight-chip">라구나 데 로스 트레스</span>
+            <span class="highlight-chip">일출 트래킹</span>
+            <span class="highlight-chip">캠핑</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card">
+        <div class="dest-card-img-wrap">
+          <img src="images/argentina_glacier.jpg" alt="페리토 모레노 빙하" class="dest-card-img" />
+          <div class="dest-card-day-badge">Day 38 · 엘 칼라파테</div>
+        </div>
+        <div class="dest-card-body">
+          <div class="dest-card-tag" style="color:#4fc3f7;">Perito Moreno</div>
+          <h3 class="dest-card-title">페리토 모레노 빙하</h3>
+          <p class="dest-card-desc">살아있는 빙하의 포효. 거대한 얼음 벽이 무너져 내리는 장관을 눈앞에서 목격하고, 직접 아이젠을 차고 빙하 위를 걷는 미니 트래킹을 경험합니다.</p>
+          <div class="dest-card-highlights">
+            <span class="highlight-chip">빙하 트래킹</span>
+            <span class="highlight-chip">빅 아이스</span>
+            <span class="highlight-chip">위스키 온 더 락</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-card">
+        <div class="dest-card-img-wrap">
+          <img src="images/argentina_ushuaia.jpg" alt="우수아이아" class="dest-card-img" />
+          <div class="dest-card-day-badge">Day 42–44 · 우수아이아</div>
+        </div>
+        <div class="dest-card-body">
+          <div class="dest-card-tag" style="color:#4fc3f7;">End of the World</div>
+          <h3 class="dest-card-title">우수아이아 — 세상의 끝</h3>
+          <p class="dest-card-desc">지구 최남단 도시. 비글 해협 크루즈로 펭귄 섬을 방문하고, 티에라 델 푸에고 국립공원을 트래킹합니다. "세상의 끝에 왔다"는 감동은 이 여행의 클라이맥스입니다.</p>
+          <div class="dest-card-highlights">
+            <span class="highlight-chip">비글 해협</span>
+            <span class="highlight-chip">펭귄 섬</span>
+            <span class="highlight-chip">최남단 도시</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAZIL & OTHERS -->
+<section class="country-section" id="brazil" style="background:#0d0d0d;">
+  <div class="country-inner">
+    <div class="country-header">
+      <div class="country-flag-num">06</div>
+      <div class="country-header-text">
+        <div class="country-tag" style="background:rgba(255,183,77,0.15);color:#ffb74d;">Brazil · Day 47–50</div>
+        <h2 class="country-name">브라질<br />이과수 · 리우데자네이루</h2>
+        <div class="country-period">2027년 1월 29일 — 2월 1일 · 3박 4일</div>
+      </div>
+    </div>
+
+    <div class="dest-grid" style="margin-bottom:28px;">
+      <div class="dest-card" style="grid-column: span 2;">
+        <div class="dest-card-img-wrap">
+          <img src="images/iguazu_falls.jpg" alt="이과수 폭포" class="dest-card-img" style="height:400px;" />
+          <div class="dest-card-day-badge">Day 47–48 · 이과수</div>
+        </div>
+        <div class="dest-card-body">
+          <div class="dest-card-tag" style="color:#ffb74d;">Iguazu Falls</div>
+          <h3 class="dest-card-title">이과수 폭포 — 아르헨티나 & 브라질 사이드</h3>
+          <p class="dest-card-desc">나이아가라보다 4배 넓은 세계 최대 규모의 폭포. 아르헨티나 사이드에서 '악마의 목구멍' 바로 위까지 걷고, 브라질 사이드에서 폭포의 웅장한 파노라마를 한눈에 담습니다.</p>
+          <div class="dest-card-highlights">
+            <span class="highlight-chip">악마의 목구멍</span>
+            <span class="highlight-chip">보트 투어</span>
+            <span class="highlight-chip">파라과이 당일치기</span>
+          </div>
+        </div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-card-img-wrap">
+          <img src="images/brazil_rio.jpg" alt="리우데자네이루" class="dest-card-img" />
+          <div class="dest-card-day-badge">Day 49 · 리우데자네이루</div>
+        </div>
+        <div class="dest-card-body">
+          <div class="dest-card-tag" style="color:#ffb74d;">Rio de Janeiro</div>
+          <h3 class="dest-card-title">리우 — 정열의 피날레</h3>
+          <p class="dest-card-desc">거대 예수상 아래 펼쳐지는 환상적인 해안선. 코파카바나 해변의 활기와 슈가로프 산의 일몰은 50일간의 대장정을 마무리하는 가장 화려한 피날레입니다.</p>
+          <div class="dest-card-highlights">
+            <span class="highlight-chip">거대 예수상</span>
+            <span class="highlight-chip">코파카바나</span>
+            <span class="highlight-chip">슈가로프 산</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE TABLE -->
+<section class="schedule-section" id="schedule">
+  <div class="schedule-inner">
+    <div class="schedule-header" style="text-align:center;">
+      <div class="section-label">Full Itinerary</div>
+      <h2 class="section-title">전체 일정표 (50일)</h2>
+      <div class="divider divider-center"></div>
+    </div>
+
+    <div class="schedule-tabs">
+      <button class="schedule-tab active" onclick="showSchedule('all', this)">전체</button>
+      <button class="schedule-tab" onclick="showSchedule('mexico', this)" style="color:#4caf50;">🇲🇽 멕시코</button>
+      <button class="schedule-tab" onclick="showSchedule('peru', this)" style="color:#ef5350;">🇵🇪 페루</button>
+      <button class="schedule-tab" onclick="showSchedule('bolivia', this)" style="color:#7986cb;">🇧🇴 볼리비아</button>
+      <button class="schedule-tab" onclick="showSchedule('chile', this)" style="color:#ce93d8;">🇨🇱 칠레</button>
+      <button class="schedule-tab" onclick="showSchedule('argentina', this)" style="color:#4fc3f7;">🇦🇷 아르헨티나</button>
+      <button class="schedule-tab" onclick="showSchedule('brazil', this)" style="color:#ffb74d;">🇧🇷 브라질</button>
+    </div>
+
+    <div class="schedule-table-wrap">
+      <table class="schedule-table" id="scheduleTable">
+        <thead>
+          <tr>
+            <th>일수</th>
+            <th>날짜</th>
+            <th>국가</th>
+            <th>도시</th>
+            <th>이동</th>
+            <th>주요 일정</th>
+            <th>숙박</th>
+          </tr>
+        </thead>
+        <tbody id="scheduleBody">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- COST SECTION -->
+<section class="cost-section">
+  <div class="cost-inner">
+    <div class="cost-header" style="text-align:center;">
+      <div class="section-label">Budget Overview</div>
+      <h2 class="section-title">항공권 예산 개요</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-desc" style="margin:0 auto;text-align:center;color:rgba(240,236,228,0.6);">확인된 주요 항공권 비용 (숙박·투어·식비 별도)</p>
+    </div>
+    <div class="cost-grid">
+      <div class="cost-card">
+        <div class="cost-card-icon">✈️</div>
+        <div class="cost-card-label">인천 → 칸쿤</div>
+        <div class="cost-card-amount">₩841,700</div>
+        <div class="cost-card-sub">밴쿠버 경유</div>
+      </div>
+      <div class="cost-card">
+        <div class="cost-card-icon">✈️</div>
+        <div class="cost-card-label">멕시코시티 → 리마</div>
+        <div class="cost-card-amount">₩374,117</div>
+        <div class="cost-card-sub">직항</div>
+      </div>
+      <div class="cost-card">
+        <div class="cost-card-icon">✈️</div>
+        <div class="cost-card-label">리마 → 쿠스코</div>
+        <div class="cost-card-amount">₩107,500</div>
+        <div class="cost-card-sub">국내선</div>
+      </div>
+      <div class="cost-card">
+        <div class="cost-card-icon">✈️</div>
+        <div class="cost-card-label">리우 → 토론토 → 인천</div>
+        <div class="cost-card-amount">₩1,401,100</div>
+        <div class="cost-card-sub">토론토 레이오버</div>
+      </div>
+    </div>
+    <div class="cost-total">
+      <div class="cost-total-label">확인된 항공권 합계</div>
+      <div class="cost-total-amount">₩3,507,017</div>
+      <div class="cost-total-note">* 야간버스 및 버스 이동 비용 별도 / 숙박비, 투어비, 식비 별도</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>남미 일주 50일 배낭여행 · 2026.12.14 — 2027.2.1</p>
+  <p style="margin-top:8px;">멕시코 · 페루 · 볼리비아 · 칠레 · 아르헨티나 · 브라질 + 캐나다(레이오버) · 파라과이(당일치기)</p>
+</footer>
+
+<script>
+  const scheduleData = [
+    { day: 'Day 1', date: '12.14', country: 'mexico', countryName: '멕시코', city: '인천→칸쿤', transport: '비행기', activity: '인천 출발 → 밴쿠버 경유(레이오버) → 칸쿤 도착 (07:00+1)', stay: '칸쿤' },
+    { day: 'Day 2', date: '12.15', country: 'mexico', countryName: '멕시코', city: '칸쿤', transport: '투어', activity: '칸쿤 도착 및 자유 탐방', stay: '칸쿤' },
+    { day: 'Day 3', date: '12.16', country: 'mexico', countryName: '멕시코', city: '칸쿤', transport: '투어', activity: '치첸이샤 + 핑크라군 + 익킬 세노떼 투어', stay: '칸쿤' },
+    { day: 'Day 4', date: '12.17', country: 'mexico', countryName: '멕시코', city: '칸쿤', transport: '투어', activity: '칸쿤 정글투어 + 스노쿨링', stay: '칸쿤' },
+    { day: 'Day 5', date: '12.18', country: 'mexico', countryName: '멕시코', city: '칸쿤→멕시코시티', transport: '비행기', activity: '칸쿤 출발 → 멕시코시티 도착 / 시내 관광', stay: '멕시코시티' },
+    { day: 'Day 6', date: '12.19', country: 'mexico', countryName: '멕시코', city: '멕시코시티', transport: '투어', activity: '테오티우아칸 피라미드 투어', stay: '멕시코시티' },
+    { day: 'Day 7', date: '12.20', country: 'mexico', countryName: '멕시코', city: '멕시코시티→똘란똥고', transport: '버스', activity: '똘란똥고 이동 / 그루타스 온천 탐방', stay: '똘란똥고' },
+    { day: 'Day 8', date: '12.21', country: 'mexico', countryName: '멕시코', city: '똘란똥고', transport: '—', activity: '똘란똥고 절벽 온천 및 계곡 휴양', stay: '똘란똥고' },
+    { day: 'Day 9', date: '12.22', country: 'mexico', countryName: '멕시코', city: '똘란똥고→멕시코시티', transport: '버스', activity: '멕시코시티 귀환 / 야경 감상', stay: '멕시코시티' },
+    { day: 'Day 10', date: '12.23', country: 'peru', countryName: '페루', city: '멕시코시티→리마', transport: '비행기', activity: '멕시코시티 출발 → 리마 도착 (23:55)', stay: '리마' },
+    { day: 'Day 11', date: '12.24', country: 'peru', countryName: '페루', city: '리마→이카', transport: '버스', activity: '리마 출발 → 이카 도착 / 버기카·샌드보딩 투어', stay: '이카' },
+    { day: 'Day 12', date: '12.25', country: 'peru', countryName: '페루', city: '이카', transport: '투어', activity: '파라카스 바예스타 섬 투어', stay: '이카' },
+    { day: 'Day 13', date: '12.26', country: 'peru', countryName: '페루', city: '이카→나스카→리마', transport: '투어·버스', activity: '나스카 라인 경비행기 투어 / 리마 이동', stay: '리마' },
+    { day: 'Day 14', date: '12.27', country: 'peru', countryName: '페루', city: '리마', transport: '—', activity: '로스트 캐니언 투어 또는 리마 시내 휴식', stay: '리마' },
+    { day: 'Day 15', date: '12.28', country: 'peru', countryName: '페루', city: '리마→쿠스코', transport: '비행기', activity: '리마 출발 → 쿠스코 도착 / 고산 적응 및 시내 관광', stay: '쿠스코' },
+    { day: 'Day 16', date: '12.29', country: 'peru', countryName: '페루', city: '쿠스코', transport: '투어·기차', activity: '성스러운 계곡 투어 → 아구아스깔리엔테스 이동', stay: '아구아스깔리엔테스' },
+    { day: 'Day 17', date: '12.30', country: 'peru', countryName: '페루', city: '마추픽추', transport: '버스·기차', activity: '마추픽추 관람 → 쿠스코 귀환', stay: '쿠스코' },
+    { day: 'Day 18', date: '12.31', country: 'peru', countryName: '페루', city: '쿠스코', transport: '투어', activity: '비니쿤카 (무지개산) 투어', stay: '쿠스코' },
+    { day: 'Day 19', date: '1.1', country: 'peru', countryName: '페루', city: '쿠스코', transport: '투어', activity: '우만따이 호수 투어', stay: '쿠스코' },
+    { day: 'Day 20', date: '1.2', country: 'peru', countryName: '페루', city: '쿠스코→라파즈', transport: '야간버스', activity: '쿠스코 자유 일정 / 야간버스 라파즈 이동', stay: '기내' },
+    { day: 'Day 21', date: '1.3', country: 'bolivia', countryName: '볼리비아', city: '라파즈', transport: '버스', activity: '라파즈 도착 / 텔레페리코 시내 관광', stay: '라파즈' },
+    { day: 'Day 22', date: '1.4', country: 'bolivia', countryName: '볼리비아', city: '라파즈', transport: '투어', activity: '차칼타야 & 차르키니 투어', stay: '라파즈' },
+    { day: 'Day 23', date: '1.5', country: 'bolivia', countryName: '볼리비아', city: '라파즈', transport: '투어', activity: '데스 로드 바이크 투어', stay: '라파즈' },
+    { day: 'Day 24', date: '1.6', country: 'bolivia', countryName: '볼리비아', city: '라파즈→우유니', transport: '야간버스', activity: '달의 계곡 투어 / 야간버스 우유니 이동', stay: '기내' },
+    { day: 'Day 25', date: '1.7', country: 'bolivia', countryName: '볼리비아', city: '우유니', transport: '투어', activity: '우유니 도착 / 풀데이 + 선셋 + 스타라이트 투어', stay: '우유니' },
+    { day: 'Day 26', date: '1.8', country: 'bolivia', countryName: '볼리비아', city: '우유니', transport: '투어', activity: '선라이즈 투어 / 우유니 자유 시간', stay: '우유니' },
+    { day: 'Day 27', date: '1.9', country: 'bolivia', countryName: '볼리비아', city: '우유니→아타카마', transport: '투어', activity: '아타카마 횡단 투어 1일차 / 라구나 콜로라다', stay: '투어숙소' },
+    { day: 'Day 28', date: '1.10', country: 'chile', countryName: '칠레', city: '아타카마', transport: '투어', activity: '아타카마 횡단 투어 2일차 / 아타카마 도착', stay: '아타카마' },
+    { day: 'Day 29', date: '1.11', country: 'chile', countryName: '칠레', city: '아타카마', transport: '렌트카', activity: '아타카마 렌트카 자유 투어 / 달의 계곡', stay: '아타카마' },
+    { day: 'Day 30', date: '1.12', country: 'chile', countryName: '칠레', city: '아타카마', transport: '렌트카', activity: '아타카마 렌트카 자유 투어 / 별 관측', stay: '아타카마' },
+    { day: 'Day 31', date: '1.13', country: 'chile', countryName: '칠레', city: '아타카마→산티아고', transport: '비행기', activity: '카라마 이동 → 산티아고 도착', stay: '산티아고' },
+    { day: 'Day 32', date: '1.14', country: 'chile', countryName: '칠레', city: '산티아고', transport: '—', activity: '산티아고 시내 관광 및 휴식', stay: '산티아고' },
+    { day: 'Day 33', date: '1.15', country: 'chile', countryName: '칠레', city: '산티아고→푸에르토나탈레르', transport: '비행기·버스', activity: '푼타아레나스 경유 푸에르토나탈레르 이동', stay: '푸에르토나탈레르' },
+    { day: 'Day 34', date: '1.16', country: 'chile', countryName: '칠레', city: '토레스 델 파이네', transport: '트래킹', activity: 'W 트래킹 1일차: 빙하 전망대', stay: '파이네 산장' },
+    { day: 'Day 35', date: '1.17', country: 'chile', countryName: '칠레', city: '토레스 델 파이네', transport: '트래킹', activity: 'W 트래킹 2일차: 프란세스 계곡', stay: '파이네 산장' },
+    { day: 'Day 36', date: '1.18', country: 'chile', countryName: '칠레', city: '토레스 델 파이네', transport: '트래킹', activity: 'W 트래킹 3일차: 칠레노 이동', stay: '파이네 산장' },
+    { day: 'Day 37', date: '1.19', country: 'chile', countryName: '칠레', city: '토레스 델 파이네', transport: '트래킹', activity: 'W 트래킹 4일차: 토레스 전망대 일출 → 하산', stay: '푸에르토나탈레르' },
+    { day: 'Day 38', date: '1.20', country: 'argentina', countryName: '아르헨티나', city: '엘칼라파테', transport: '버스', activity: '엘 칼라파테 이동 / 모레노 빙하 투어', stay: '엘칼라파테' },
+    { day: 'Day 39', date: '1.21', country: 'argentina', countryName: '아르헨티나', city: '엘찰텐', transport: '버스', activity: '엘 찰텐 이동 / 트래킹 준비', stay: '엘찰텐' },
+    { day: 'Day 40', date: '1.22', country: 'argentina', countryName: '아르헨티나', city: '엘찰텐', transport: '트래킹', activity: '피츠로이 트래킹 / 캠핑', stay: '피츠로이 캠핑장' },
+    { day: 'Day 41', date: '1.23', country: 'argentina', countryName: '아르헨티나', city: '엘찰텐→엘칼라파테', transport: '트래킹·버스', activity: '라구나 토레 트래킹 → 엘 칼라파테 귀환', stay: '엘칼라파테' },
+    { day: 'Day 42', date: '1.24', country: 'argentina', countryName: '아르헨티나', city: '우수아이아', transport: '비행기', activity: '우수아이아 이동 / 시내 관광', stay: '우수아이아' },
+    { day: 'Day 43', date: '1.25', country: 'argentina', countryName: '아르헨티나', city: '우수아이아', transport: '투어', activity: '비글 해협 크루즈 + 펭귄 섬 투어', stay: '우수아이아' },
+    { day: 'Day 44', date: '1.26', country: 'argentina', countryName: '아르헨티나', city: '부에노스아이레스', transport: '비행기', activity: '부에노스아이레스 이동 / 탱고 공연 관람', stay: '부에노스아이레스' },
+    { day: 'Day 45', date: '1.27', country: 'argentina', countryName: '아르헨티나', city: '부에노스아이레스', transport: '—', activity: '시내 관광 (라 보카·산 텔모)', stay: '부에노스아이레스' },
+    { day: 'Day 46', date: '1.28', country: 'argentina', countryName: '아르헨티나', city: '이과수', transport: '비행기', activity: '이과수 이동 / 아르헨티나 사이드 관람', stay: '이과수' },
+    { day: 'Day 47', date: '1.29', country: 'brazil', countryName: '브라질', city: '이과수', transport: '투어', activity: '브라질 사이드 관람 / 파라과이 당일치기', stay: '이과수' },
+    { day: 'Day 48', date: '1.30', country: 'brazil', countryName: '브라질', city: '리우데자네이루', transport: '비행기', activity: '리우 이동 / 코파카바나 해변 휴식', stay: '리우데자네이루' },
+    { day: 'Day 49', date: '1.31', country: 'brazil', countryName: '브라질', city: '리우→귀국', transport: '비행기', activity: '거대 예수상 관람 / 공항 이동 및 출발', stay: '기내' },
+    { day: 'Day 50', date: '2.1', country: 'korea', countryName: '대한민국', city: '인천', transport: '비행기', activity: '토론토 경유 → 인천 도착', stay: '귀가' }
+  ];
+
+  const countryColors = {
+    mexico: 'cb-mexico',
+    peru: 'cb-peru',
+    bolivia: 'cb-bolivia',
+    chile: 'cb-chile',
+    argentina: 'cb-argentina',
+    brazil: 'cb-brazil',
+    korea: ''
+  };
+
+  function renderSchedule(filter) {
+    const tbody = document.getElementById('scheduleBody');
+    const filtered = filter === 'all' ? scheduleData : scheduleData.filter(d => d.country === filter);
+    tbody.innerHTML = filtered.map(d => `
+      <tr>
+        <td><span class="day-badge">${d.day}</span></td>
+        <td style="white-space:nowrap;color:rgba(240,236,228,0.5);">${d.date}</td>
+        <td><span class="country-badge ${countryColors[d.country]}">${d.countryName}</span></td>
+        <td style="font-weight:500;">${d.city}</td>
+        <td><span class="transport-badge">${d.transport}</span></td>
+        <td>${d.activity}</td>
+        <td style="color:rgba(240,236,228,0.5);font-size:0.8rem;">${d.stay}</td>
+      </tr>
+    `).join('');
+  }
+
+  function showSchedule(filter, btn) {
+    document.querySelectorAll('.schedule-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    renderSchedule(filter);
+  }
+
+  renderSchedule('all');
+</script>
+
+</body>
+</html>
