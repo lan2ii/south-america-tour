@@ -28,14 +28,16 @@
       justify-content: space-between;
       align-items: center;
       z-index: 100;
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     .logo {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
       font-size: 1.2rem;
       color: #d4af37;
+      letter-spacing: 0.1em;
     }
     .nav-links {
       display: flex;
@@ -231,7 +233,12 @@
       object-fit: cover;
       transition: transform 0.6s;
     }
-    .dest-card:hover .dest-card-img { transform: scale(1.1); }
+    /* Specific fix for Machu Picchu and other panoramic images */
+    .img-contain { object-fit: contain; background: #000; }
+    .img-top { object-position: top; }
+    .img-center { object-position: center; }
+
+    .dest-card:hover .dest-card-img { transform: scale(1.05); }
     .dest-card-day-badge {
       position: absolute;
       top: 20px;
@@ -259,15 +266,6 @@
       color: rgba(240,236,228,0.7);
       margin-bottom: 24px;
     }
-    .dest-card-highlights { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; }
-    .highlight-chip {
-      font-size: 0.65rem;
-      padding: 4px 10px;
-      border-radius: 4px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: rgba(240,236,228,0.6);
-    }
 
     /* ===== FEATURE CARD (WIDE) ===== */
     .feature-card {
@@ -277,8 +275,9 @@
       border-radius: 20px;
       overflow: hidden;
       margin-top: 40px;
+      background: #000;
     }
-    .feature-card img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .feature-card img { width: 100%; height: 100%; object-fit: cover; }
     .feature-card-overlay {
       position: absolute;
       inset: 0;
@@ -291,7 +290,6 @@
     .feature-card-tag { font-size: 0.8rem; font-weight: 700; margin-bottom: 16px; }
     .feature-card-title { font-size: 3.5rem; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
     .feature-card-desc { max-width: 600px; font-size: 1.1rem; line-height: 1.8; color: rgba(240,236,228,0.8); margin-bottom: 30px; }
-    .feature-card-day { font-size: 0.9rem; font-weight: 700; color: #d4af37; letter-spacing: 0.1em; }
 
     /* ===== SCHEDULE TABLE ===== */
     .schedule-section { background: #0a0a0a; scroll-margin-top: 80px; }
@@ -426,8 +424,8 @@
         <span class="hero-stat-label">Countries</span>
       </div>
       <div class="hero-stat">
-        <span class="hero-stat-num">20+</span>
-        <span class="hero-stat-label">Detailed Tours</span>
+        <span class="hero-stat-num">25+</span>
+        <span class="hero-stat-label">Epic Tours</span>
       </div>
     </div>
   </div>
@@ -441,54 +439,24 @@
       <div class="country-header-text">
         <div class="country-tag" style="background:rgba(76,175,80,0.15);color:#4caf50;">멕시코 · Day 1–6</div>
         <h2 class="country-name">멕시코<br />멕시코시티 · 똘란똥고 · 칸쿤</h2>
-        <div class="country-period">2026년 12월 13일 — 12월 19일</div>
       </div>
     </div>
-
     <div class="dest-grid">
       <div class="dest-card">
-        <div class="dest-card-img-wrap">
-          <img src="images/mexico_teotihuacan_majestic.jpg" alt="테오티우아칸" class="dest-card-img" />
-          <div class="dest-card-day-badge">Day 2</div>
-        </div>
-        <div class="dest-card-body">
-          <div class="dest-card-tag" style="color:#4caf50;">Ancient City</div>
-          <h3 class="dest-card-title">테오티우아칸 & 과달루페</h3>
-          <p class="dest-card-desc">신들의 도시 테오티우아칸 피라미드와 멕시코의 성지 과달루페 성당을 하루에 정복합니다.</p>
-        </div>
+        <div class="dest-card-img-wrap"><img src="images/mexico_teotihuacan_majestic.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 2</div></div>
+        <div class="dest-card-body"><h3 class="dest-card-title">테오티우아칸 & 과달루페</h3><p class="dest-card-desc">신들의 도시 피라미드와 멕시코의 성지 과달루페 성당 투어.</p></div>
       </div>
       <div class="dest-card">
-        <div class="dest-card-img-wrap">
-          <img src="images/mexico_tolantongo.jpg" alt="똘란똥고" class="dest-card-img" />
-          <div class="dest-card-day-badge">Day 3</div>
-        </div>
-        <div class="dest-card-body">
-          <div class="dest-card-tag" style="color:#4caf50;">Natural Spa</div>
-          <h3 class="dest-card-title">똘란똥고 온천</h3>
-          <p class="dest-card-desc">절벽 위 하늘색 온천탕에서 즐기는 환상적인 휴식.</p>
-        </div>
+        <div class="dest-card-img-wrap"><img src="images/mexico_tolantongo.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 3</div></div>
+        <div class="dest-card-body"><h3 class="dest-card-title">똘란똥고 온천</h3><p class="dest-card-desc">절벽 위 하늘색 온천탕에서 즐기는 환상적인 자연 스파.</p></div>
       </div>
       <div class="dest-card">
-        <div class="dest-card-img-wrap">
-          <img src="images/mexico_chichen_itza.jpg" alt="치첸이샤" class="dest-card-img" />
-          <div class="dest-card-day-badge">Day 5</div>
-        </div>
-        <div class="dest-card-body">
-          <div class="dest-card-tag" style="color:#4caf50;">World Wonder</div>
-          <h3 class="dest-card-title">치첸이샤 & 익킬 세노떼</h3>
-          <p class="dest-card-desc">마야 문명의 정수와 신비로운 천연 우물 세노떼 탐험.</p>
-        </div>
+        <div class="dest-card-img-wrap"><img src="images/mexico_chichen_itza.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 5</div></div>
+        <div class="dest-card-body"><h3 class="dest-card-title">치첸이샤 & 익킬 세노떼</h3><p class="dest-card-desc">마야 문명의 정수와 신비로운 천연 우물 탐험.</p></div>
       </div>
       <div class="dest-card">
-        <div class="dest-card-img-wrap">
-          <img src="images/mexico_pink_lagoon.jpg" alt="핑크라군" class="dest-card-img" />
-          <div class="dest-card-day-badge">Day 5</div>
-        </div>
-        <div class="dest-card-body">
-          <div class="dest-card-tag" style="color:#4caf50;">Visual Peak</div>
-          <h3 class="dest-card-title">핑크라군</h3>
-          <p class="dest-card-desc">비현실적인 분홍빛 호수에서 남기는 인생 사진.</p>
-        </div>
+        <div class="dest-card-img-wrap"><img src="images/mexico_pink_lagoon.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 5</div></div>
+        <div class="dest-card-body"><h3 class="dest-card-title">핑크라군</h3><p class="dest-card-desc">비현실적인 분홍빛 호수에서 남기는 인생 사진.</p></div>
       </div>
     </div>
   </div>
@@ -505,36 +473,33 @@
       </div>
     </div>
 
+    <!-- MACHU PICCHU EPIC VIEW -->
     <div class="feature-card" style="margin-bottom: 40px;">
-      <img src="images/peru_machu_epic.jpg" alt="마추픽추" style="object-position: 50% 20%;" />
+      <img src="images/peru_machu_epic.jpg" alt="마추픽추 전경" class="img-contain" />
       <div class="feature-card-overlay">
-        <div class="feature-card-tag" style="color:#ef5350;">Day 14 · Machu Picchu</div>
-        <h3 class="feature-card-title">마추픽추 — 공중도시</h3>
-        <p class="feature-card-desc">잉카 문명의 신비가 담긴 잃어버린 도시. 안데스 산맥의 정점에서 마주하는 압도적 전경.</p>
+        <div class="feature-card-tag" style="color:#ef5350;">Day 14 · The Lost City</div>
+        <h3 class="feature-card-title">마추픽추 — 잉카의 심장</h3>
+        <p class="feature-card-desc">안데스 산맥의 정점, 구름 속에 가려진 공중도시. 잘림 없는 파노라마 뷰로 마주하는 잉카의 신비.</p>
       </div>
     </div>
 
+    <!-- CUSCO DETAILED TOURS -->
     <div class="dest-grid">
       <div class="dest-card">
-        <div class="dest-card-img-wrap"><img src="images/peru_nazca.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 9</div></div>
-        <div class="dest-card-body">
-          <h3 class="dest-card-title">나스카 라인</h3>
-          <p class="dest-card-desc">경비행기를 타고 하늘에서 내려다보는 거대 지상화.</p>
-        </div>
+        <div class="dest-card-img-wrap"><img src="images/peru_vinicunca.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 15</div></div>
+        <div class="dest-card-body"><h3 class="dest-card-title">비니쿤카 (무지개산)</h3><p class="dest-card-desc">해발 5,000m 위, 일곱 빛깔 무지개를 품은 신비로운 산.</p></div>
       </div>
       <div class="dest-card">
-        <div class="dest-card-img-wrap"><img src="images/peru_paracas.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 10</div></div>
-        <div class="dest-card-body">
-          <h3 class="dest-card-title">파라카스 바예스타 섬</h3>
-          <p class="dest-card-desc">물개와 펭귄이 가득한 야생의 섬 보트 투어.</p>
-        </div>
+        <div class="dest-card-img-wrap"><img src="images/peru_humantay.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 16</div></div>
+        <div class="dest-card-body"><h3 class="dest-card-title">우만따이 호수</h3><p class="dest-card-desc">만년설 아래 펼쳐진 에메랄드빛 고산 호수의 비경.</p></div>
       </div>
       <div class="dest-card">
         <div class="dest-card-img-wrap"><img src="images/peru_huacachina.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 8</div></div>
-        <div class="dest-card-body">
-          <h3 class="dest-card-title">와카치나 사막</h3>
-          <p class="dest-card-desc">사막 오아시스에서의 버기카와 샌드보딩.</p>
-        </div>
+        <div class="dest-card-body"><h3 class="dest-card-title">와카치나 사막</h3><p class="dest-card-desc">사막 오아시스에서의 버기카와 샌드보딩 액티비티.</p></div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-card-img-wrap"><img src="images/peru_nazca.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 9</div></div>
+        <div class="dest-card-body"><h3 class="dest-card-title">나스카 라인</h3><p class="dest-card-desc">경비행기를 타고 하늘에서 내려다보는 거대 지상화.</p></div>
       </div>
     </div>
   </div>
@@ -550,64 +515,25 @@
         <h2 class="country-name">볼리비아<br />라파즈 · 우유니</h2>
       </div>
     </div>
-
     <div class="dest-grid">
       <div class="dest-card">
-        <div class="dest-card-img-wrap"><img src="images/bolivia_chacaltaya.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 20</div></div>
-        <div class="dest-card-body">
-          <h3 class="dest-card-title">차칼타야 산</h3>
-          <p class="dest-card-desc">해발 5,421m에서 바라보는 안데스의 장엄한 설산 풍경.</p>
-        </div>
+        <div class="dest-card-img-wrap"><img src="images/bolivia_chacaltaya.jpg" class="dest-card-img img-top" /><div class="dest-card-day-badge">Day 20</div></div>
+        <div class="dest-card-body"><h3 class="dest-card-title">차칼타야 산</h3><p class="dest-card-desc">해발 5,421m, 세계에서 가장 높은 스키장이었던 안데스의 봉우리.</p></div>
       </div>
       <div class="dest-card">
         <div class="dest-card-img-wrap"><img src="images/bolivia_death_road.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 19</div></div>
-        <div class="dest-card-body">
-          <h3 class="dest-card-title">데스 로드 바이크</h3>
-          <p class="dest-card-desc">세계에서 가장 위험한 도로를 자전거로 질주하는 스릴.</p>
-        </div>
+        <div class="dest-card-body"><h3 class="dest-card-title">데스 로드 바이크</h3><p class="dest-card-desc">절벽 옆을 달리는 짜릿한 산악 자전거 다운힐 투어.</p></div>
       </div>
       <div class="dest-card">
         <div class="dest-card-img-wrap"><img src="images/bolivia_uyuni.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 21-24</div></div>
-        <div class="dest-card-body">
-          <h3 class="dest-card-title">우유니 소금 사막</h3>
-          <p class="dest-card-desc">하늘과 땅이 하나가 되는 세상에서 가장 큰 거울.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CHILE -->
-<section class="country-section" id="chile" style="background:#0d0d0d;">
-  <div class="country-inner">
-    <div class="country-header">
-      <div class="country-flag-num">04</div>
-      <div class="country-header-text">
-        <div class="country-tag" style="background:rgba(206,147,216,0.15);color:#ce93d8;">칠레 · Day 25–35</div>
-        <h2 class="country-name">칠레<br />아타카마 · 파타고니아</h2>
-      </div>
-    </div>
-    <div class="dest-grid">
-      <div class="dest-card">
-        <div class="dest-card-img-wrap"><img src="images/chile_atacama.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 25-28</div></div>
-        <div class="dest-card-body">
-          <h3 class="dest-card-title">아타카마 사막</h3>
-          <p class="dest-card-desc">달의 계곡과 쏟아지는 은하수, 렌트카 자유 여행.</p>
-        </div>
-      </div>
-      <div class="dest-card" style="grid-column: span 2;">
-        <div class="dest-card-img-wrap"><img src="images/chile_torres.jpg" class="dest-card-img" style="height:400px;" /><div class="dest-card-day-badge">Day 31-34</div></div>
-        <div class="dest-card-body">
-          <h3 class="dest-card-title">토레스 델 파이네 W 트래킹</h3>
-          <p class="dest-card-desc">파타고니아의 심장부, 3박 4일간의 경이로운 도보 여정.</p>
-        </div>
+        <div class="dest-card-body"><h3 class="dest-card-title">우유니 소금 사막</h3><p class="dest-card-desc">하늘과 땅의 경계가 사라지는 세상에서 가장 큰 거울.</p></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ARGENTINA -->
-<section class="country-section" id="argentina" style="background:#111;">
+<section class="country-section" id="argentina" style="background:#0d0d0d;">
   <div class="country-inner">
     <div class="country-header">
       <div class="country-flag-num">05</div>
@@ -616,52 +542,29 @@
         <h2 class="country-name">아르헨티나<br />엘찰텐 · 우수아이아 · 부에노스아이레스</h2>
       </div>
     </div>
-
     <div class="dest-grid">
-      <!-- FITZ ROY SPLIT -->
       <div class="dest-card">
         <div class="dest-card-img-wrap"><img src="images/argentina_fitzroy.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 37</div></div>
-        <div class="dest-card-body">
-          <h3 class="dest-card-title">피츠로이 (로스 트레스)</h3>
-          <p class="dest-card-desc">일출과 함께 붉게 타오르는 '불타는 고구마' 피츠로이.</p>
-        </div>
+        <div class="dest-card-body"><h3 class="dest-card-title">피츠로이 (로스 트레스)</h3><p class="dest-card-desc">일출과 함께 붉게 타오르는 파타고니아의 상징.</p></div>
       </div>
       <div class="dest-card">
         <div class="dest-card-img-wrap"><img src="images/argentina_laguna_torre.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 38</div></div>
-        <div class="dest-card-body">
-          <h3 class="dest-card-title">라구나 토레</h3>
-          <p class="dest-card-desc">빙하 호수와 뾰족한 세로토레 봉우리가 어우러진 비경.</p>
-        </div>
+        <div class="dest-card-body"><h3 class="dest-card-title">라구나 토레</h3><p class="dest-card-desc">빙하 호수와 세로토레 봉우리가 어우러진 비경.</p></div>
       </div>
-      <!-- USHUAIA DETAILED -->
-      <div class="dest-card">
-        <div class="dest-card-img-wrap"><img src="images/argentina_ushuaia.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 40</div></div>
-        <div class="dest-card-body">
-          <h3 class="dest-card-title">비글해협 & 펭귄섬</h3>
-          <p class="dest-card-desc">세상의 끝 바다에서 만나는 야생 펭귄 군락지.</p>
-        </div>
-      </div>
-      <div class="dest-card">
-        <div class="dest-card-img-wrap"><img src="images/argentina_glacier.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 41</div></div>
-        <div class="dest-card-body">
-          <h3 class="dest-card-title">세계 끝 기차 투어</h3>
-          <p class="dest-card-desc">지구 최남단 철도를 따라 달리는 역사적인 기차 여행.</p>
-        </div>
-      </div>
-      <!-- BUENOS AIRES DETAILED -->
       <div class="dest-card">
         <div class="dest-card-img-wrap"><img src="images/argentina_tango.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 42</div></div>
-        <div class="dest-card-body">
-          <h3 class="dest-card-title">부에노스아이레스 탱고</h3>
-          <p class="dest-card-desc">정열의 도시에서 즐기는 본고장의 강렬한 탱고 공연.</p>
-        </div>
+        <div class="dest-card-body"><h3 class="dest-card-title">부에노스아이레스 탱고</h3><p class="dest-card-desc">정열의 도시에서 즐기는 본고장의 강렬한 탱고 공연.</p></div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-card-img-wrap"><img src="images/argentina_ushuaia.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 40</div></div>
+        <div class="dest-card-body"><h3 class="dest-card-title">비글해협 & 펭귄섬</h3><p class="dest-card-desc">세상의 끝 바다에서 만나는 야생 펭귄 군락지.</p></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- BRAZIL & PARAGUAY -->
-<section class="country-section" id="brazil" style="background:#0d0d0d;">
+<section class="country-section" id="brazil" style="background:#111;">
   <div class="country-inner">
     <div class="country-header">
       <div class="country-flag-num">06</div>
@@ -670,35 +573,18 @@
         <h2 class="country-name">브라질 & 파라과이<br />이과수 · 리우데자네이루</h2>
       </div>
     </div>
-
     <div class="dest-grid">
       <div class="dest-card">
         <div class="dest-card-img-wrap"><img src="images/iguazu_falls.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 44</div></div>
-        <div class="dest-card-body">
-          <h3 class="dest-card-title">이과수 아르헨티나 사이드</h3>
-          <p class="dest-card-desc">악마의 목구멍을 바로 위에서 내려다보는 전율과 보트 투어.</p>
-        </div>
+        <div class="dest-card-body"><h3 class="dest-card-title">이과수 아르헨티나 사이드</h3><p class="dest-card-desc">악마의 목구멍을 바로 위에서 내려다보는 전율.</p></div>
       </div>
       <div class="dest-card">
         <div class="dest-card-img-wrap"><img src="images/iguazu_falls.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 45</div></div>
-        <div class="dest-card-body">
-          <h3 class="dest-card-title">이과수 브라질 사이드</h3>
-          <p class="dest-card-desc">폭포의 거대한 파노라마를 한눈에 담는 웅장한 뷰.</p>
-        </div>
+        <div class="dest-card-body"><h3 class="dest-card-title">이과수 브라질 사이드</h3><p class="dest-card-desc">폭포의 거대한 파노라마를 한눈에 담는 웅장한 뷰.</p></div>
       </div>
       <div class="dest-card">
-        <div class="dest-card-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;background:#222;color:#555;">Paraguay Image</div><div class="dest-card-day-badge">Day 45</div></div>
-        <div class="dest-card-body">
-          <h3 class="dest-card-title">파라과이 당일치기</h3>
-          <p class="dest-card-desc">이과수 접경 지역을 통한 파라과이 시우다드델에스테 관광.</p>
-        </div>
-      </div>
-      <div class="dest-card">
-        <div class="dest-card-img-wrap"><img src="images/brazil_rio.jpg" class="dest-card-img" /><div class="dest-card-day-badge">Day 46-48</div></div>
-        <div class="dest-card-body">
-          <h3 class="dest-card-title">리우데자네이루</h3>
-          <p class="dest-card-desc">거대 예수상과 코파카바나 해변, 정열의 피날레.</p>
-        </div>
+        <div class="dest-card-img-wrap"><div style="height:100%;display:flex;align-items:center;justify-content:center;background:#222;color:#555;">Paraguay Tour</div><div class="dest-card-day-badge">Day 45</div></div>
+        <div class="dest-card-body"><h3 class="dest-card-title">파라과이 당일치기</h3><p class="dest-card-desc">이과수 접경 지역을 통한 파라과이 시우다드델에스테 관광.</p></div>
       </div>
     </div>
   </div>
@@ -712,7 +598,6 @@
       <h2 class="section-title">전체 일정표 (50일)</h2>
       <div class="divider divider-center"></div>
     </div>
-
     <div class="schedule-tabs">
       <button class="schedule-tab active" onclick="showSchedule('all', this)">전체</button>
       <button class="schedule-tab" onclick="showSchedule('mexico', this)" style="color:#4caf50;">🇲🇽 멕시코</button>
@@ -724,30 +609,16 @@
       <button class="schedule-tab" onclick="showSchedule('paraguay', this)" style="color:#fbc02d;">🇵🇾 파라과이</button>
       <button class="schedule-tab" onclick="showSchedule('canada', this)" style="color:#fff;">🇨🇦 캐나다</button>
     </div>
-
     <div class="schedule-table-wrap">
       <table class="schedule-table" id="scheduleTable">
-        <thead>
-          <tr>
-            <th>일수</th>
-            <th>날짜</th>
-            <th>국가</th>
-            <th>도시</th>
-            <th>이동</th>
-            <th>주요 일정</th>
-            <th>숙박</th>
-          </tr>
-        </thead>
-        <tbody id="scheduleBody">
-        </tbody>
+        <thead><tr><th>일수</th><th>날짜</th><th>국가</th><th>도시</th><th>이동</th><th>주요 일정</th><th>숙박</th></tr></thead>
+        <tbody id="scheduleBody"></tbody>
       </table>
     </div>
   </div>
 </section>
 
-<footer>
-  <p>남미 일주 50일 배낭여행 · 2026.12.13 — 2027.1.31</p>
-</footer>
+<footer><p>남미 일주 50일 배낭여행 · 2026.12.13 — 2027.1.31</p></footer>
 
 <script>
   const scheduleData = [
@@ -804,15 +675,9 @@
   ];
 
   const countryColors = {
-    mexico: 'cb-mexico',
-    peru: 'cb-peru',
-    bolivia: 'cb-bolivia',
-    chile: 'cb-chile',
-    argentina: 'cb-argentina',
-    brazil: 'cb-brazil',
-    paraguay: 'cb-paraguay',
-    canada: 'cb-canada',
-    korea: ''
+    mexico: 'cb-mexico', peru: 'cb-peru', bolivia: 'cb-bolivia', chile: 'cb-chile',
+    argentina: 'cb-argentina', brazil: 'cb-brazil', paraguay: 'cb-paraguay',
+    canada: 'cb-canada', korea: ''
   };
 
   function renderSchedule(filter) {
